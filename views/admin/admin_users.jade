@@ -1,0 +1,11 @@
+extends ../layout
+block layout
+	include ../layout-body
+	block layout-body
+		div.panel.panel-info.table-modal
+			div.panel-heading
+				h2.panel-title 
+					| Users
+			div.panel-body
+				include admin_users-modal
+	include ../layout-footer

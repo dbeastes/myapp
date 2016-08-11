@@ -1,0 +1,26 @@
+extends _nav_main_layout
+block content
+	ul.nav.navbar-nav
+		li
+			a(href="/dashboard") Dashboard
+		li.dropdown
+			a.dropdown-toggle(href="#" data-toggle="dropdown") Setup
+				span.caret
+			ul.dropdown-menu(role="menu")
+				li 
+					a(href="/setup/emailtemplates") Email Templates
+	ul.nav.navbar-nav.navbar-right
+		li.dropdown
+			a.dropdown-toggle(href="#" data-toggle="dropdown") #{user}
+				span.caret
+			ul.dropdown-menu(role="menu")
+				li
+					a(href="/profile") Profile
+				li
+					//a(href="/agency/#{userObj.agency._id}") My Agency
+				li.divider
+				li.dropdown-header
+				li
+					a(href="/preferences") Preferences
+				li
+					a(href="/logout") Logout

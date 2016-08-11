@@ -1,0 +1,21 @@
+<meter> polyfill jQuery plug-in
+by Futomi Hatano <info@html5.jp>
+	Twitter: @futomi https://twitter.com/#!/futomi
+
+Usage:
+
+<script src="jquery.min.js"></script>
+<script src="jquery.html5jpMeterPolyfill.js"></script>
+<script>
+$(document).ready(function() {
+  $('meter').html5jpMeterPolyfill();
+});
+</script>
+<style>
+meter {
+  display: inline-block;
+  width: 5em;
+  height: 1em;
+  vertical-align: -0.2em;
+}
+</style>

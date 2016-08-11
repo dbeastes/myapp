@@ -1,0 +1,36 @@
+
+body
+		
+case user_role
+	when 'admin'
+		include partials/_nav_main_admin
+	when 'user'
+		include partials/_nav_main_user
+	when 'norole'
+		include partials/_nav_main_norole
+	when 'public'
+		include partials/_nav_main_public
+	when 'login'
+		include partials/_nav_main_public
+		br
+	default
+		include partials/_nav_main_public
+script.
+	$(document).ready(function() {
+		//body > div:nth-child(1) > div > div > div > ul.nav.navbar-nav > li.dropdown
+		$('body > nav > div > div > div > ul.nav.navbar-nav > li.dropdown').toggle('hidden');
+		//$('body > div:nth-child(1) > div > div > div > ul.nav.navbar-nav > li.dropdown').removeClass('active');
+		$body = $("body");
+		$(document).on({
+			ajaxStart: function() { $body.addClass("loading");    },
+			ajaxStop: function() { $body.removeClass("loading"); }    
+		});
+	});
+	function testLoader(){
+	}
+block layout-body
+
+
+
+
+

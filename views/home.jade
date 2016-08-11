@@ -1,0 +1,26 @@
+extends layout
+
+block layout
+  h1= message
+  ul
+  if(val)
+    each val in kittens
+        li= val.name
+  h3= oneLastThing
+  
+  form(class = 'form-horizontal', method='post', action='/')
+    div(class="form-group")
+        label= "Name"
+        input(type="text" name='name' class="form-control" id="exampleInputEmail1" placeholder="Name")
+    div(class="form-group")
+        label= "Weight"
+        input(type="text" name='weight' class="form-control" id="exampleInputEmail1" placeholder="Weight")
+    div(class="form-group")
+        button(type='submit', class='btn btn-primary btn-lg btn-block')= "Add Kitten"
+        a(href='/kitten', class='btn btn-info btn-lg btn-block')= "View Kittens"
+      
+
+        
+      
+
+  

@@ -1,0 +1,75 @@
+div#MainMenu.navbar.navbar-default(role="navigation" style="margin-top: 10px")
+	div.container-fluid
+		div.row
+			div.navbar-header
+				button.navbar-toggle.collapsed(type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1")
+					span.sr-only Toggle navigation
+					span.icon-bar
+					span.icon-bar
+					span.icon-bar
+				a.navbar-brand(href="/" style="margin-top: -10px; margin-left: -10px;")
+					div#logo
+			div#bs-example-navbar-collapse-1.collapse.navbar-collapse
+				block content
+
+//ALERTS
+div#ALERTS
+
+script.
+	
+	$( document ).ready(function(){
+		
+		// Get URL Path
+		var pathArray = window.location.pathname.split( '/' );
+		var secondLevelLocation = pathArray[0];
+			
+		if(!pathArray[0]){
+			// Not an Array
+			pathArray = window.location.pathname.replace("/","");
+			currPage = pathArray;
+		}else{
+			// Array
+			currPage = secondLevelLocation;
+		}
+
+		// Get Parameters
+		$.urlParam = function(name){
+			var results = new RegExp('[\?&amp;]' + name + '=([^&amp;#]*)').exec(window.location.href);
+			return results[1] || 0;
+		}
+
+		switch(currPage){
+			case "":
+				$('#MainMenu > ul.nav.navbar-nav > li').toggleClass('active');
+				break;
+			case "login":
+				$('#MainMenu > ul.nav.navbar-nav-right > li:nth-child(1)').toggleClass('active');
+				break;
+			case "register":
+				$('#MainMenu > ul.nav.navbar-nav-right > li:nth-child(2)').toggleClass('active');
+				break;
+			case "dashboard":
+				$('#bs-example-navbar-collapse-1 > ul:nth-child(1) > li:nth-child(1)').toggleClass('active');
+				break;
+			case "indication":
+			case "indications":
+				$('#bs-example-navbar-collapse-1 > ul:nth-child(1) > li:nth-child(2)').toggleClass('active');
+				break;
+			case "quote":
+			case "quotes":
+				$('#bs-example-navbar-collapse-1 > ul:nth-child(1) > li:nth-child(3)').toggleClass('active');
+				break;
+			case "policy":
+			case "policies":
+				$('#bs-example-navbar-collapse-1 > ul:nth-child(1) > li:nth-child(3)').toggleClass('active');
+				break;
+			case "agencies":
+			case "agency":
+			case "agent":
+				$('#bs-example-navbar-collapse-1 > ul:nth-child(1) > li:nth-child(4)').toggleClass('active');
+				break;
+			default:
+				break;
+		}
+		
+	})

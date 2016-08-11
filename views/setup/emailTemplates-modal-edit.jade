@@ -1,0 +1,137 @@
+div#emailTemplateContainer
+	div#accordion.panel-group
+		div.panel.panel-info
+			div.panel-heading(data-toggle="collapse" data-parent="#accordion" data-target="#collapseOne")
+				h4.panel-title.accordion-toggle Tips & Instructions
+			div#collapseOne.panel-collapse.collapse
+				div.panel-body
+					div
+						h4 You may use variables in the subject and body fields
+						ul
+							li <%FIRSTNAME%> - First Name of the recipient
+							li <%LASTNAME%> - Last Name of the recipient
+							li <%URL%> - The URL of the Review
+							li <%CUSTOMERNAME%> - The name of the customer
+
+	form#emailTemplateForm.form-horizontal(role="form")
+		div.form-group.hidden
+			input#etCSRF(name="_csrf" value="#{csrf}")
+			input#etAction(name="action" value="update")
+			input#etID(name="id" )
+		div.form-group
+			label.control-label.col-sm-2(for="etName") Name of Template: 
+			div.col-sm-10
+				input#etName.form-control(type="text" name="name")
+		div.form-group
+			label.control-label.col-sm-2(for="etDescription") Description of Template: 
+			div.col-sm-10
+				input#etDescription.form-control(type="text" name="description")
+		div.form-group
+			label.control-label.col-sm-2(for="etSubject") Subject: 
+			div.col-sm-10
+				input#etSubject.form-control(type="text" name="subject")
+		div.form-group
+			label.control-label.col-sm-2(for="etfromName")  From Name:
+			div.col-sm-10
+				input#etfromName.form-control(type="text" name="fromName")
+		div.form-group
+			label.control-label.col-sm-2(for="etfromEmail")  From Email:
+			div.col-sm-10
+				input#etfromEmail.form-control(type="text" name="fromEmail")
+		div.form-group
+			label.control-label.col-sm-2(for="etreplyTo") Reply To Email:
+			div.col-sm-10
+				input#etreplyTo.form-control(type="text" name="replyTo")
+		div.form-group
+			label.control-label.col-sm-2(for="etBodyContainer") Email Body:
+			div.col-sm-10
+				div#etBodyContainer
+					//textarea.textarea(placeholder="Enter text ..." style="width: 100%; height: 200px; font-size: 14px; line-height: 18px;")
+					//include wysiwyg
+					textarea(name="etBodyEditor" id="etBodyEditor" rows="10" cols="80") This is my textarea to be replaced with CKEditor.
+					script.
+						// Replace the <textarea id="editor1"> with a CKEditor
+						// instance, using default configuration.
+						CKEDITOR.replace( 'etBodyEditor' );
+		div.form-group
+			div.col-sm-offset-2.col-sm-10
+				button.btn.btn-default(onclick="cancelEmailTemplate(); return false;") Cancel
+				| 
+				button.btn.btn-primary(onclick="saveEmailTemplate();") Submit
+
+	script.
+
+
+		$(document).ready(function () {			
+			
+			et = !{et};
+			$("#etID").val(et._id);
+			if(et.name) $("#etName").val(et.name);
+			if(et.subject) $("#etSubject").val(et.subject);			
+			if(et.description) $("#etDescription").val(et.description);
+			if(et.fromName) $("#etfromName").val(et.fromName);
+			if(et.fromEmail) $("#etfromEmail").val(et.fromEmail);
+			if(et.replyTo) $("#etreplyTo").val(et.replyTo);
+			//if(et.body) $('#etBodyEditor').html(et.body);
+			if(et.body) {
+				CKEDITOR.instances.etBodyEditor.setData( et.body );
+				//var data = CKEDITOR.instances.editor1.getData();
+			}
+			switch('#{action}'){
+				case "edit":
+					//$('#etBodyEditor').code(et.body);
+					break;
+				default:
+					break;
+			}
+			
+
+
+		});
+		
+		function saveEmailTemplate(){
+				event.preventDefault();
+				
+				if ($('#etBodyEditorSourceContainer').is(":visible")){
+					// Copy from source to wysiwyg
+					$('#etBodyEditor').html($('#etBodyEditorSource').val());
+				}
+				
+	
+				data	= {
+					_csrf			: $('#etCSRF').val(),
+					_id				: $('#etID').val(),
+					action			: $('#etAction').val(),
+					name			: $('#etName').val(),
+					description		: $('#etDescription').val(),
+					subject			: $('#etSubject').val(),
+					fromName		: $('#etfromName').val(),
+					fromEmail		: $('#etfromEmail').val(),
+					replyTo			: $('#etreplyTo').val(),
+					body			: CKEDITOR.instances.etBodyEditor.getData()
+				}
+	
+				$.ajax({
+					type		: 'POST',
+					async		: true,
+					url			: '/emailtemplates',
+					data		: data,
+					success		: function(d, status, jqXHR) {
+						console.log('/////// SUCCESS ////////');
+						//$('#slideDownModal').slideToggle();
+						console.log('HERE 1');
+						window.location = "/setup/emailtemplates/";
+						return false;
+					},
+					error		: function(err){
+						console.log('/////// ERROR: ' + err.responseText + ' ////////');
+						alert('ERROR' + err.responseText);
+					}
+				});
+			};
+
+		function cancelEmailTemplate() {
+			window.location = "/setup/emailtemplates/";
+		}
+			
+			

@@ -1,0 +1,91 @@
+// Modal
+div#addNoteModal.modal.fade(tabindex="-1" role="dialog" aria-labelledby="addNoteModalLabel" aria-hidden="true")
+	div.modal-dialog
+		div.modal-content
+			form#addNoteModalForm(method="post" name="addNoteModalForm" role="form")
+				div.modal-header
+					h4.modal-title#addNoteModalLabel Add Note
+				div.modal-body
+					div.container-fluid
+						input#_csrf.hidden(type="text" name="_csrf" value="#{csrf}")
+						.form-group
+							.col-sm-12
+								textarea#text.form-control(rows='5' name="text")
+								.form-group
+							.col-sm-12
+								.checkbox
+									label
+										input#sendUW(type='checkbox' name="sendUW" value='false')
+										| Send to Underwriter
+
+								.checkbox
+									label
+										input#sendWB(type='checkbox' name='sendWB' value='false')
+										| Send to Wholesale Broker
+								.checkbox
+									label
+										input#sendRB(type='checkbox' name='sendRB' value='false')
+										| Send to Retail Broker
+				div.modal-footer
+					button.btn.btn-default(type="button" data-dismiss="modal") Cancel
+					button#btn_saveAndSend.btn.btn-primary(type="submit" name="btn_saveAndSend") Save and Send
+script.
+	$(':checkbox').change(function(e){
+		$(this).val( $(':checked').length >0 ? 'true' : 'false');
+	})
+	$('#addNoteModalForm').on("submit", function(event){
+		console.log("SUBMITTING!");
+		event.preventDefault();
+		//var form = $('#addNoteModalForm').serializeObject();
+		//console.log(JSON.stringify(form));
+		//var data = {form};
+		//console.log('THis is the form: ' + JSON.stringify(data));
+		var payload ={};
+		payload._csrf                          = $('#_csrf').val();
+		payload.text                           = $('#text').val();
+		payload.type                           = "App Chat";
+		payload.createdBy                      = "!{userId}";
+		payload.attachedId                     = "!{data._id}";
+		payload.notified                       = {};
+		
+		if($('#sendUW').val()){
+			//payload.notified.underwriter_name      = "Atlas Underwriter";
+			payload.notified.underwriter_name      = data.underwriter_ID.firstName + " " + data.underwriter_ID.lastName;;
+			//payload.notified.underwriter_email     = "rockuw@binddesk.com";
+			//payload.notified.underwriter_email     = "dlovrenich@gmail.com";
+			payload.notified.underwriter_email     = data.underwriter_ID.email;
+			
+			payload.notified.wholesaleBroker_name  = data.wholesaleAgency.producerID.firstName + " " + data.wholesaleAgency.producerID.lastName;
+			payload.notified.wholesaleBroker_email = data.wholesaleAgency.producerID.email;
+			payload.notified.retailBroker_name     = data.retailAgency.producerID.firstName + " " + data.retailAgency.producerID.lastName;
+			//payload.notified.retailBroker_email    = "me@daryx.com";
+			payload.notified.retailBroker_email    = data.retailAgency.producerID.email;
+
+			payload.notified.sendUW					= $('#sendUW').val();
+			payload.notified.sendRB					= $('#sendRB').val();
+			payload.notified.sendWB					= $('#sendWB').val();
+
+		payload.applicantName					= data.insured.name;
+		console.log('Payload to send: ' + JSON.stringify(payload));
+		
+		$.ajax({
+			url                 : '/addnote',
+			type                : 'post',
+			dataType            : 'json',
+			data                : payload,
+			beforeSend          : function(){},
+			success             : function (res) {
+
+				$('#addNoteModal').modal('hide');
+				if($('#notesTable')) $('#notesTable').bootstrapTable('refresh');
+				swal("Note was added");
+			},
+			error: function(XMLHttpRequest, textStatus, errorThrown) {
+				//console.log('XML HTTP: ' + JSON.stringify(XMLHttpRequest));
+				AKMD.alert({type : 'danger', message : XMLHttpRequest.responseText});
+				$('#addNoteModal').modal('hide');
+				if(cb) cb;
+			}
+		})
+	}
+	});

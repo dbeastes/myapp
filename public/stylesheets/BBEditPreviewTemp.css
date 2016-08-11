@@ -1,0 +1,644 @@
+.datepicker-days {
+	visibility: visible; !important
+}
+
+body {
+  padding-left: 50px;
+  padding-right: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+
+#headerRow {
+	width	:	100%;
+}
+
+#headerMap {
+	width	:	200px;
+	display	:	inline-block;
+}
+
+#headerInfo {
+	width			:	640px;
+	display			:	inline-block;
+	vertical-align	: top;
+}
+
+#wmFooter	{
+	margin		: 0 auto;
+	display 	: block;
+	padding		: 15px;
+	width 		: 950px;
+	text-align	: right;
+}
+
+#wmFooter div {
+	display : inline-block;
+}
+
+.totalNegRatings {
+	border-style 	: 	solid;
+	border-width	:	1px;
+	width			:	100px;
+	height			:	100px;
+	
+}
+
+
+.jchartfx_gauge .Needle {
+    fill: #000000;
+    stroke: #000000;
+}
+
+ .jchartfx_gauge .Filler {
+    fill: #CE2834;
+    stroke: #CE2834;
+}
+
+ .jchartfx_gauge .Text {
+    font-family: Arial;
+    font-size: 12pt;
+    fill: #1FB1ED;
+}
+
+ .jchartfx_gauge .Bar {
+    fill: #D8D8D8;
+    stroke: #D8D8D8;
+}
+
+ .jchartfx_gauge .Title {
+    font-family: Arial;
+    font-size: 24pt;
+    fill: #000000;
+}
+
+#chartLine {
+	margin: -50 auto;
+}
+
+#div_obj {
+	height	:	130px !important;
+}
+
+
+.star {
+	font-size	: 48;	
+	display		: inline-block;
+	color		: lightgray;
+}
+
+.star:hover{
+	color	: orange;
+	cursor	: pointer;
+}
+
+.star.hovered{
+	color	: orange;
+	cursor	: pointer;
+}
+
+.starClicked {
+	font-size	: 48;	
+	display		: inline-block;
+	color	: red;
+}
+
+.starClicked:hover{
+	cursor	: pointer;
+}
+
+.starClickedGray {
+	font-size	: 48;	
+	display		: inline-block;
+	color		: lightgray;
+}
+
+.starClickedGray:hover{
+	cursor	: pointer;
+}
+
+.starSelected{
+	font-size	: 20;	
+	display		: inline-block;
+	color	: orange;
+}
+
+.starNotSelected{
+	font-size	: 20;	
+	display		: inline-block;
+	color		: gray;
+}
+
+#reviewEmail {
+	width	:	400px;
+}
+
+.reviewButtonCont {
+	margin-top	:	20px;
+}
+
+.reviewBody {
+	font-size	:	18px;
+}
+
+.reviewEmailAddressCont {
+	margin-top		: 20px;
+	margin-bottom	: 20px;
+}
+
+.reviewEmailAddress {
+	font-size	:	18px;
+}
+
+.howdidyoudiscover{
+	font-size	:	18px;
+}
+
+.discoverDropdown {
+	margin-top		:	20px;
+	margin-bottom	:	20px;
+}
+
+.reviewTextContainer {
+	margin		:	0 auto;
+}
+
+.reviewText {
+
+	width		:	100%;
+	height		:	300px;
+}
+
+.reviewSubmitContainer{
+	margin-top	:	20px;
+	padding 	:	10px;
+}
+
+.reviewContainer {
+	display		:	block;
+	width		:	100%;
+	height		:   100px;
+	border-bottom: black;
+	border-style: solid;
+	border-width: 1;
+	border-top-width: 0;
+	border-left-width: 0;
+	border-right-width: 0;
+	padding-bottom: 20px;
+}
+
+.reportReviewContainer{
+	display : inline-block;
+	width	: 850px;
+}
+
+.reviewSource{
+	display : inline-block;
+	width	: 100px;
+	height	: 100px;
+}
+
+.reviewRating {
+	display : inline-block;
+}
+
+.reviewDate {
+	display : inline-block;
+	margin-left: 50px;
+	margin-top : 8px;
+	float: right;
+}
+
+.reviewAuthor {
+	display : inline-block;
+	margin-left: 50px;
+}
+
+.reviewReview {
+	overflow: hidden;
+	height	: 70px;
+}
+
+.reviewImg {
+	height	:	100px;
+	width	:	100px;
+}
+
+
+#seomozcontainer {
+	display : block;
+	height	:	100px;
+	width	: 100%;
+	margin-bottom: 60px;
+	margin-top: 25px;
+}
+
+#seoMozDomainAuth {
+	display : inline-block;
+	height	:	100px;
+	width	: 20%;
+	border-style : solid;
+	border-width : 1;
+	margin:22px;
+}
+
+#seoMozPageAuth {
+	display : inline-block;
+	height	:	100px;
+	width	: 20%;
+	border-style : solid;
+	border-width : 1;
+	margin:22px;
+}
+
+#seoMozRankPoint {
+	display : inline-block;
+	height	:	100px;
+	width	: 20%;
+	border-style : solid;
+	border-width : 1;
+	margin:22px;
+}
+
+#seoMozRankRaw {
+	display : inline-block;
+	height	:	100px;
+	width	: 20%;
+	border-style : solid;
+	border-width : 1;
+	margin:22px;
+}
+
+#seoMozDomainAuth div {
+	text-align: center;
+}
+
+#seoMozPageAuth div {
+	text-align: center;
+}
+
+#seoMozRankPoint div {
+	text-align: center;
+}
+
+#seoMozRankRaw div {
+	text-align: center;
+}
+
+.seoMozValue {
+	height	:	60px;
+	font-size: 55;
+	font-weight: bolder;
+}
+
+.seoMozMessage {
+	margin-top: -58px;
+	margin-left: -20px;
+	font-weight: bold;
+	font-size: 21;
+}
+
+
+.seoMozMsgImage {
+	height: 40;
+	padding-top: 81;
+	vertical-align: bottom;
+	margin-bottom: -5px;
+}
+
+#chartLine {
+	margin-top : 30px !important;
+}
+
+
+#topLogo {
+	margin-top: -15px;
+	margin-left: -7px;
+	height: 49px;
+	margin-bottom: -15px;
+}
+
+
+
+.frow {
+	margin : 10px;
+}
+
+.flabel {
+	display : inline-block;
+	width	:	140px;
+}
+
+.ffield {
+	display : inline-block;
+	width	:	140px;
+	text-align	: right;
+}
+
+.fbutton {
+	text-align	: right;
+	margin-top	:	20px;
+}
+
+.searchContainer {
+	width		:	300px;
+}
+
+#searchLogo {
+	height: 80px;
+	margin-left : -30px;
+	margin-top	: -20px;
+	
+}
+
+.searchButton {
+	height	:	40px;
+	width	:	80px;
+}
+
+
+
+input[type='checkbox'] {
+    -webkit-appearance:none;
+    width:30px;
+    height:30px;
+    background:white;
+    border-radius:5px;
+    border:2px solid #555;
+}
+
+
+input[type='checkbox']:checked {
+    background: #abd;
+}
+
+.resultContainer {
+
+}
+
+.searchResultRow {
+	height	:	200px;
+}
+
+.leftSearchCol {
+	display: inline-block;
+	text-align: left;
+	height: 100%;
+	vertical-align: top;
+}
+
+.rightSearchCol {
+	display: inline-block;
+	/*text-align: right;*/
+	/*float: right;*/
+	/*margin: 0 auto;*/
+}
+.rightSearchCol .img img{
+	height: 200px;
+}
+
+.srHeader {
+
+}
+
+.srChkBox {
+
+}
+
+.srTitle {
+
+}
+
+.srDescr {
+
+}
+
+input {
+	width	:	226;
+}
+
+.avgRatingScore {
+	margin-top		: 160px;
+	left			: 110px;
+	z-index			: 100;
+	position		: absolute;
+	font			: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+	font-family		: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	font-weight		: bold;
+	font-size		: 60px;
+}
+
+.fbutton.login {
+	display			: inline-block;
+}
+
+.loginButton {
+	width	: 	120px;
+	margin	:	15px;
+}
+
+.frow.loginBtnRow {
+	margin			:	0 auto;
+	text-align		:	center;
+}
+
+.signupButton {
+	width	:	120px;
+}
+
+ul.nav.navbar-nav-right {
+	float	:	right;
+}
+
+li.dropdown.hidden {
+	display	:	none;
+}
+
+.footerContainer {
+	margin	: 	0 auto;
+	padding-left:20px;
+	padding-right:30px;
+	margin-left:-2px;
+	margin-top:0px;
+	min-height:50px; 
+	text-align:center;
+	/**
+	border-bottom: black;
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	border-left: black;
+	border-left-style: solid;
+	border-left-width: 1px;
+	border-right: black;
+	border-right-style: solid;
+	border-right-width: 1px;
+	*/
+	display	:	block;
+}
+
+.footerContainer div {
+	display		:	inline-block;
+	padding		:	15px;
+}
+
+.footerContainer div a {
+	text-decoration	:	none;
+	color			:	white;
+}
+
+
+table.dataTable.hover tbody tr:hover,
+table.dataTable.hover tbody tr.odd:hover,
+table.dataTable.hover tbody tr.even:hover, table.dataTable.display tbody tr:hover,
+table.dataTable.display tbody tr.odd:hover,
+table.dataTable.display tbody tr.even:hover {
+  background-color	: lightgrey;
+  cursor			: pointer;
+}
+table.dataTable.hover tbody tr:hover.selected,
+table.dataTable.hover tbody tr.odd:hover.selected,
+table.dataTable.hover tbody tr.even:hover.selected, table.dataTable.display tbody tr:hover.selected,
+table.dataTable.display tbody tr.odd:hover.selected,
+table.dataTable.display tbody tr.even:hover.selected {
+  background-color: lightgrey;
+  cursor			: pointer;
+}
+
+#isFiveStars.hidden {
+	display	:	none;
+}
+
+#isFiveStars {
+	display	:	block;
+}
+
+#isFiveStars .reviewLinkIcons  {
+	display			:	inline-block;
+	margin-left		:	10px;
+	margin-right	:	10px;
+}
+
+#isFiveStars .reviewLinkIcons.hidden {
+	display : none;
+}
+
+#isFiveStars > .reviewLinkIcons > a > div > img {
+	height	:	100px;
+}
+
+
+#lessThanFiveStars.hidden {
+	display	:	none;
+}
+
+#lessThanFiveStars {
+	display	:	block;
+}
+
+#starValue.hidden {
+	display	:	none;
+}
+
+.hidden	{
+	display	:	none;
+}
+
+#gridReports > thead > tr > th {
+	text-align	:	left;
+}
+
+#gridLead > thead {
+	text-align	:	left;
+}
+
+#gridLead > tfoot {
+	text-align	:	left;
+}
+
+.AudienceGridContainer {
+	margin-bottom	: 50px;
+}
+
+#newCampaignStepTwo > div:nth-child(3) > input {
+	margin-top	:	-2px;
+}
+
+#newCampaignStepTwo > div:nth-child(6) > input {
+	margin-top	:	-2px;
+}
+
+.audienceDivider {
+	margin-left		:	50px;
+	margin-bottom	:	5px;
+}
+
+select, input[type="file"] {
+	height: 30px;
+	line-height: 13px;
+}
+
+div.modal-content {
+    max-height: 640px;
+    overflow-y: auto;
+}
+
+
+#campaigns > div:nth-child(4) {
+	float: right;
+	margin-top: -35px;
+}
+
+#emailtemplates > div:nth-child(4) {
+	float: right;
+	margin-top: -35px;
+}
+
+#emailTemplateContainer {
+	padding : 30px;
+}
+
+
+/* LOADER - BEGIN */
+
+/* Start by setting display:none to make this hidden.
+   Then we position it in relation to the viewport window
+   with position:fixed. Width, height, top and left speak
+   speak for themselves. Background we set to 80% white with
+   our animation centered, and no-repeating */
+.modalLoader {
+    display:    none;
+    position:   fixed;
+    z-index:    1060;
+    top:        0;
+    left:       0;
+    height:     100%;
+    width:      100%;
+    background: rgba( 255, 255, 255, .8 ) 
+                url('/images/loading/red_small_spinner.gif') 
+                50% 50% 
+                no-repeat;
+}
+
+/* When the body has the loading class, we turn
+   the scrollbar off with overflow:hidden */
+body.loading {
+    overflow: hidden;   
+}
+
+/* Anytime the body has the loading class, our
+   modal element will be visible */
+body.loading .modalLoader {
+    display: block;
+}
+
+/* LOADER - END */
+
+
+#CustomerName {
+	font-size : 30px;
+}

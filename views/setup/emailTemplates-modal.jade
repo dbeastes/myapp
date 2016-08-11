@@ -1,0 +1,50 @@
+form#addEmailTemplateForm(method="post" role="form")
+	div.form-group
+		input.hidden(type="text" name="_csrf" value="#{csrf}")
+	div.form-group
+		label(for="name") Name:
+		input.form-control#name(type="text" name="name")
+	div.form-group
+		label(for="description") Description:
+		input.form-control#description(type="text" name="description")
+
+	div.form-group
+		label(for="fromName") From Name:
+		input.form-control#fromName(type="text" name="fromName")
+	div.form-group
+		label(for="fromEmail") fromEmail:
+		input.form-control#fromEmail(type="text" name="fromEmail")
+	div.form-group
+		label(for="replyTo") replyTo:
+		input.form-control#replyTo(type="text" name="replyTo")
+	div.form-group
+		label(for="subject") subject:
+		input.form-control#subject(type="text" name="subject")
+	div.form-group
+		label(for="body") Email Body:
+		input.form-control#body(type="text" name="body")
+
+	
+		
+	button.btn.btn-default( type="clear"  data-dismiss="modal") Cancel
+	button.btn.btn-primary(onclick="addEmailTemplate(); return false;") Save and Create
+script.
+	function addEmailTemplate(cb){
+		$.ajax({
+			url                 : '/collections/emailtemplates',
+			type                : 'post',
+			dataType            : 'json',
+			data                : $('#addEmailTemplateForm').serialize(),
+			beforeSend          : function(){},
+			success             : function (res) {
+				AKMD.alert({type : 'success', message : 'Email Template Added.'});
+				$('#myModal').modal('hide');
+				if(cb) cb();
+			},
+			error: function(XMLHttpRequest, textStatus, errorThrown) { 	
+				AKMD.alert({type : 'danger', message : 'Error Adding Template'});
+				$('#myModal').modal('hide');
+				if(cb) cb();
+			}
+		})
+	}

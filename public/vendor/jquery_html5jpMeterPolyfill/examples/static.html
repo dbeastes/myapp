@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>meter polyfill</title>
+<link rel="stylesheet" href="style.css">
+<script src="jquery.min.js"></script>
+<script src="../jquery.html5jpMeterPolyfill.js"></script>
+<script>
+$(document).ready(function() {
+	$('meter').html5jpMeterPolyfill();
+});
+</script>
+<style>
+meter {
+	display: inline-block;
+	width: 5em;
+	height: 1em;
+	vertical-align: -0.2em;
+}
+</style>
+</head>
+<body>
+
+<h1>meter polyfill</h1>
+<section>
+	<h2>optimum=&quot;100&quot;</h2>
+	<p><label><span class="header">0点</span>：<meter value="0" min="0" low="30" high="70" max="100" optimum="100">0点</meter></label></p>
+	<p><label><span class="header">20点</span>：<meter value="20" min="0" low="30" high="70" max="100" optimum="100">20点</meter></label></p>
+	<p><label><span class="header">50点</span>：<meter value="50" min="0" low="30" high="70" max="100" optimum="100">50点</meter></label></p>
+	<p><label><span class="header">75点</span>：<meter value="75" min="0" low="30" high="70" max="100" optimum="100">75点</meter></label></p>
+	<p><label><span class="header">100点</span>：<meter value="100" min="0" low="30" high="70" max="100" optimum="100">100点</meter></label></p>
+</section>
+<section>
+	<h2>optimum=&quot;50&quot;</h2>
+	<p><label><span class="header">0点</span>：<meter value="0" min="0" low="30" high="70" max="100" optimum="50">0点</meter></label></p>
+	<p><label><span class="header">20点</span>：<meter value="20" min="0" low="30" high="70" max="100" optimum="50">20点</meter></label></p>
+	<p><label><span class="header">50点</span>：<meter value="50" min="0" low="30" high="70" max="100" optimum="50">50点</meter></label></p>
+	<p><label><span class="header">75点</span>：<meter value="75" min="0" low="30" high="70" max="100" optimum="50">75点</meter></label></p>
+	<p><label><span class="header">100点</span>：<meter value="100" min="0" low="30" high="70" max="100" optimum="50">100点</meter></label></p>
+</section>
+<section>
+	<h2>optimum=&quot;0&quot;</h2>
+	<p><label><span class="header">0点</span>：<meter value="0" min="0" low="30" high="70" max="100" optimum="0">0点</meter></label></p>
+	<p><label><span class="header">20点</span>：<meter value="20" min="0" low="30" high="70" max="100" optimum="0">20点</meter></label></p>
+	<p><label><span class="header">50点</span>：<meter value="50" min="0" low="30" high="70" max="100" optimum="0">50点</meter></label></p>
+	<p><label><span class="header">75点</span>：<meter value="75" min="0" low="30" high="70" max="100" optimum="0">75点</meter></label></p>
+	<p><label><span class="header">100点</span>：<meter value="100" min="0" low="30" high="70" max="100" optimum="0">100点</meter></label></p>
+</section>
+<section>
+	<h2>no optimum</h2>
+	<p><label><span class="header">0点</span>：<meter value="0" min="0" low="30" high="70" max="100">0点</meter></label></p>
+	<p><label><span class="header">20点</span>：<meter value="20" min="0" low="30" high="70" max="100">20点</meter></label></p>
+	<p><label><span class="header">50点</span>：<meter value="50" min="0" low="30" high="70" max="100">50点</meter></label></p>
+	<p><label><span class="header">75点</span>：<meter value="75" min="0" low="30" high="70" max="100">75点</meter></label></p>
+	<p><label><span class="header">100点</span>：<meter value="100" min="0" low="30" high="70" max="100">100点</meter></label></p>
+</section>
+
+<section>
+	<h2>sample 1</h2>
+	<p><label><span class="header">6800rpm</span>：<meter value="5000" min="0" low="8000" high="9000" max="10000" optimum="0">6800rpm</meter></label> &lt;meter value=&quot;5000&quot; min=&quot;0&quot; low=&quot;8000&quot; high=&quot;9000&quot; max=&quot;10000&quot; optimum=&quot;0&quot;&gt;6800rpm&lt;/meter&gt;</p>
+	<p><label><span class="header">8500rpm</span>：<meter value="8500" min="0" low="8000" high="9000" max="10000" optimum="0">8500rpm</meter></label> &lt;meter value=&quot;8500&quot; min=&quot;0&quot; low=&quot;8000&quot; high=&quot;9000&quot; max=&quot;10000&quot; optimum=&quot;0&quot;&gt;8500rpm&lt;/meter&gt;</p>
+	<p><label><span class="header">9500rpm</span>：<meter value="9500" min="0" low="8000" high="9000" max="10000" optimum="0">9500rpm</meter></label> &lt;meter value=&quot;9500&quot; min=&quot;0&quot; low=&quot;8000&quot; high=&quot;9000&quot; max=&quot;10000&quot; optimum=&quot;0&quot;&gt;9500rpm&lt;/meter&gt;</p>
+</section>
+<section>
+	<h2>sample 2</h2>
+	<p><label><span class="header">73L</span>：<meter value="73" min="0" low="10" high="20" max="73" optimum="73">73L</meter></label> &lt;meter value=&quot;73&quot; min=&quot;0&quot; low=&quot;10&quot; high=&quot;20&quot; max=&quot;73&quot; optimum=&quot;73&quot;&gt;73L&lt;/meter&gt;</p>
+	<p><label><span class="header">15L</span>：<meter value="15" min="0" low="10" high="20" max="73" optimum="73">15L</meter></label> &lt;meter value=&quot;15&quot; min=&quot;0&quot; low=&quot;10&quot; high=&quot;20&quot; max=&quot;73&quot; optimum=&quot;73&quot;&gt;15L&lt;/meter&gt;</p>
+	<p><label><span class="header">9L</span>：<meter value="9" min="0" low="10" high="20" max="73" optimum="73">9L</meter></label> &lt;meter value=&quot;9&quot; min=&quot;0&quot; low=&quot;10&quot; high=&quot;20&quot; max=&quot;73&quot; optimum=&quot;73&quot;&gt;9L&lt;/meter&gt;</p>
+</section>
+<section>
+	<h2>sample 3</h2>
+	<p><label><span class="header">15&#8451;</span>：<meter value="15" min="0" low="20" high="32" max="40" optimum="25">15&#8451;</meter></label> &lt;meter value=&quot;15&quot; min=&quot;0&quot; low=&quot;20&quot; high=&quot;32&quot; max=&quot;40&quot; optimum=&quot;25&quot;&gt;15℃&lt;/meter&gt;</p>
+	<p><label><span class="header">25&#8451;</span>：<meter value="25" min="0" low="20" high="32" max="40" optimum="25">25&#8451;</meter></label> &lt;meter value=&quot;25&quot; min=&quot;0&quot; low=&quot;20&quot; high=&quot;32&quot; max=&quot;40&quot; optimum=&quot;25&quot;&gt;25℃&lt;/meter&gt;</p>
+	<p><label><span class="header">35&#8451;</span>：<meter value="35" min="0" low="20" high="32" max="40" optimum="25">35&#8451;</meter></label> &lt;meter value=&quot;35&quot; min=&quot;0&quot; low=&quot;20&quot; high=&quot;32&quot; max=&quot;40&quot; optimum=&quot;25&quot;&gt;35℃&lt;/meter&gt;</p>
+</section>
+
+<section>
+	<h2>boundary test 1</h2>
+	<p><label><span class="header">0rpm</span>：<meter value="5000" min="0" low="8000" high="9000" max="10000" optimum="0">0rpm</meter></label> &lt;meter value=&quot;0&quot; min=&quot;0&quot; low=&quot;8000&quot; high=&quot;9000&quot; max=&quot;10000&quot; optimum=&quot;0&quot;&gt;0rpm&lt;/meter&gt;</p>
+	<p><label><span class="header">8000rpm</span>：<meter value="8000" min="0" low="8000" high="9000" max="10000" optimum="0">8000rpm</meter></label> &lt;meter value=&quot;8000&quot; min=&quot;0&quot; low=&quot;8000&quot; high=&quot;9000&quot; max=&quot;10000&quot; optimum=&quot;0&quot;&gt;8000rpm&lt;/meter&gt;</p>
+	<p><label><span class="header">9000rpm</span>：<meter value="9000" min="0" low="8000" high="9000" max="10000" optimum="0">9000rpm</meter></label> &lt;meter value=&quot;9000&quot; min=&quot;0&quot; low=&quot;8000&quot; high=&quot;9000&quot; max=&quot;10000&quot; optimum=&quot;0&quot;&gt;9000rpm&lt;/meter&gt;</p>
+	<p><label><span class="header">10000rpm</span>：<meter value="10000" min="0" low="8000" high="9000" max="10000" optimum="0">10000rpm</meter></label> &lt;meter value=&quot;10000&quot; min=&quot;0&quot; low=&quot;8000&quot; high=&quot;9000&quot; max=&quot;10000&quot; optimum=&quot;0&quot;&gt;10000rpm&lt;/meter&gt;</p>
+</section>
+<section>
+	<h2>boundary test 2</h2>
+	<p><label><span class="header">0L</span>：<meter value="0" min="0" low="10" high="20" max="73" optimum="73">0L</meter></label> &lt;meter value=&quot;0&quot; min=&quot;0&quot; low=&quot;10&quot; high=&quot;20&quot; max=&quot;73&quot; optimum=&quot;73&quot;&gt;0L&lt;/meter&gt;</p>
+	<p><label><span class="header">10L</span>：<meter value="10" min="0" low="10" high="20" max="73" optimum="73">10L</meter></label> &lt;meter value=&quot;10&quot; min=&quot;0&quot; low=&quot;10&quot; high=&quot;20&quot; max=&quot;73&quot; optimum=&quot;73&quot;&gt;10L&lt;/meter&gt;</p>
+	<p><label><span class="header">20L</span>：<meter value="20" min="0" low="10" high="20" max="73" optimum="73">20L</meter></label> &lt;meter value=&quot;20&quot; min=&quot;0&quot; low=&quot;10&quot; high=&quot;20&quot; max=&quot;73&quot; optimum=&quot;73&quot;&gt;20L&lt;/meter&gt;</p>
+	<p><label><span class="header">73L</span>：<meter value="73" min="0" low="10" high="20" max="73" optimum="73">73L</meter></label> &lt;meter value=&quot;73&quot; min=&quot;0&quot; low=&quot;10&quot; high=&quot;20&quot; max=&quot;73&quot; optimum=&quot;73&quot;&gt;73L&lt;/meter&gt;</p>
+</section>
+<section>
+	<h2>boundary test 3</h2>
+	<p><label><span class="header">0&#8451;</span>：<meter value="0" min="0" low="20" high="32" max="40" optimum="25">0&#8451;</meter></label> &lt;meter value=&quot;0&quot; min=&quot;0&quot; low=&quot;20&quot; high=&quot;32&quot; max=&quot;40&quot; optimum=&quot;25&quot;&gt;0&#8451;&lt;/meter&gt;</p>
+	<p><label><span class="header">20&#8451;</span>：<meter value="20" min="0" low="20" high="32" max="40" optimum="25">20&#8451;</meter></label> &lt;meter value=&quot;20&quot; min=&quot;0&quot; low=&quot;20&quot; high=&quot;32&quot; max=&quot;40&quot; optimum=&quot;25&quot;&gt;20&#8451;&lt;/meter&gt;</p>
+	<p><label><span class="header">32&#8451;</span>：<meter value="32" min="0" low="20" high="32" max="40" optimum="25">32&#8451;</meter></label> &lt;meter value=&quot;32&quot; min=&quot;0&quot; low=&quot;20&quot; high=&quot;32&quot; max=&quot;40&quot; optimum=&quot;25&quot;&gt;32&#8451;&lt;/meter&gt;</p>
+	<p><label><span class="header">40&#8451;</span>：<meter value="40" min="0" low="20" high="32" max="40" optimum="25">40&#8451;</meter></label> &lt;meter value=&quot;40&quot; min=&quot;0&quot; low=&quot;20&quot; high=&quot;32&quot; max=&quot;40&quot; optimum=&quot;25&quot;&gt;40&#8451;&lt;/meter&gt;</p>
+</section>
+
+
+</body>
+</html>

@@ -1,0 +1,785 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>jChartFX Samples - Radial Gauge</title>
+		<link rel="stylesheet" type="text/css" href="resources/presenter.css"/>
+		<link rel="stylesheet" type="text/css" href="http://www.jchartfx.com/libs/v7/current/styles/Palettes/jchartfx.palette.css"/>
+		<link rel="stylesheet" type="text/css" href="http://www.jchartfx.com/libs/v7/current/styles/Attributes/jchartfx.attributes.css"/>
+		<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" /> 
+	<style class="jcf_style container_NeedleWithSections">
+	.container_NeedleWithSections .jchartfx_gauge .TitleSafe {
+    font-family: Arial;
+    font-size: 8pt;
+    fill: #2F912F;
+}
+
+.container_NeedleWithSections .jchartfx_gauge .TitleWarning {
+    font-family: Arial;
+    font-size: 8pt;
+    fill: #FDB023;
+}
+
+.container_NeedleWithSections .jchartfx_gauge .TitleDanger {
+    font-family: Arial;
+    font-size: 8pt;
+    fill: #F43131;
+}
+
+.container_NeedleWithSections .jchartfx_gauge .TickMajor {
+    fill: #A0A0A0;
+    stroke: #A0A0A0;
+}
+
+.container_NeedleWithSections .jchartfx_gauge .TickMedium {
+    fill: #A0A0A0;
+    stroke: #A0A0A0;
+}
+
+	</style>
+	<style class="jcf_style container_Progress">
+	.container_Progress .jchartfx_gauge .DockedTitle {
+    font-family: Arial;
+    font-size: 12pt;
+    fill: #404040;
+}
+
+.container_Progress .jchartfx_gauge .Bar {
+    fill: #CCCCCC;
+    stroke: #666666;
+}
+
+	</style>
+	<style class="jcf_style container_Marker">
+	.container_Marker .jchartfx_gauge .TickMajor {
+    fill: #A0A0A0;
+    stroke: #A0A0A0;
+}
+
+.container_Marker .jchartfx_gauge .TickMedium {
+    fill: #A0A0A0;
+    stroke: #A0A0A0;
+}
+
+.container_Marker .jchartfx_gauge .Bar {
+    fill: #FFFFFF;
+    stroke: #A0A0A0;
+}
+
+.container_Marker .jchartfx_gauge .Marker {
+    fill: #FFFFFF;
+    stroke: #FF0000;
+    stroke-width: 3;
+}
+
+	</style>
+	<style class="jcf_style container_LEDs">
+	.container_LEDs .jchartfx_gauge .Repeater {
+     stroke: #000000;
+     fill: #FD6F29;
+}
+
+.container_LEDs .jchartfx_gauge .BorderMedium {
+    fill: #000000;
+    stroke-width: 2;
+}
+
+.container_LEDs .jchartfx_gauge .TitleLarge {
+     fill: #FD6F29;
+     font-size: 24pt;
+}
+
+.container_LEDs .jchartfx_gauge .Title {
+     fill: #999999;
+}
+
+	</style>
+	<style class="jcf_style container_SimpleBarAndNeedle">
+	.container_SimpleBarAndNeedle .jchartfx_gauge .Bar {
+    fill: #BDE031;
+    stroke: #BDE031;
+}
+
+.container_SimpleBarAndNeedle .jchartfx_gauge .Indicator {
+    fill: #000000;
+    stroke: #000000;
+}
+
+.container_SimpleBarAndNeedle .jchartfx_gauge .Text {
+    font-size: 12pt;
+    font-family: Arial;
+    fill: #1FB1ED;
+}
+
+.container_SimpleBarAndNeedle .jchartfx_gauge .Section0 {
+    fill: #8EDA2C;
+    stroke: #8EDA2C;
+}
+
+.container_SimpleBarAndNeedle .jchartfx_gauge .Title {
+    font-size: 36pt;
+    font-family: Arial;
+    font-weight: bold;
+    fill: #000000;
+}
+
+
+	</style>
+	<style class="jcf_style container_WeatherGauge">
+	.container_WeatherGauge .jchartfx_gauge .Border {
+    stroke: #CCCCC4;
+    fill: #FFFFFF;
+}
+
+.container_WeatherGauge .jchartfx_gauge .Cap {
+    fill: #61615E;
+}
+
+.container_WeatherGauge .jchartfx_gauge .TickMajor{
+    stroke: #CCCCC4;
+    fill: #CCCCC4;
+}
+
+.container_WeatherGauge .jchartfx_gauge .Marker {
+    fill: #C61E1E;
+    stroke: #C61E1E;
+}
+
+.container_WeatherGauge .jchartfx_gauge .Title {
+    font-family: Arial;
+    font-size: 16pt;
+    fill: #000000;
+}
+
+.container_WeatherGauge .jchartfx_gauge .TitleLarge {
+    font-family: Arial;
+    font-size: 24pt;
+    fill: #EEEEEE;
+}
+
+	</style>
+	<style class="jcf_style container_SimpleBarAndNeedle2">
+	.container_SimpleBarAndNeedle2 .jchartfx_gauge .Needle {
+    fill: #000000;
+    stroke: #000000;
+}
+
+.container_SimpleBarAndNeedle2 .jchartfx_gauge .Filler {
+    fill: #CE2834;
+    stroke: #CE2834;
+}
+
+.container_SimpleBarAndNeedle2 .jchartfx_gauge .Text {
+    font-family: Arial;
+    font-size: 12pt;
+    fill: #1FB1ED;
+}
+
+.container_SimpleBarAndNeedle2 .jchartfx_gauge .Bar {
+    fill: #D8D8D8;
+    stroke: #D8D8D8;
+}
+
+.container_SimpleBarAndNeedle2 .jchartfx_gauge .Title {
+    font-family: Arial;
+    font-size: 24pt;
+    fill: #000000;
+}
+
+
+
+	</style>
+	<style class="jcf_style container_WeatherGauge2">
+	.container_WeatherGauge2 .jchartfx_gauge .Border {
+    stroke: #CCCCC4;
+    fill: #FFFFFF;
+}
+
+.container_WeatherGauge2 .jchartfx_gauge .Cap {
+    fill: #CCCCC4;
+}
+
+.container_WeatherGauge2 .jchartfx_gauge .Bar {
+    fill: #E9E9E3;
+    stroke: #C3C3BE;
+}
+
+.container_WeatherGauge2 .jchartfx_gauge .TickMajor {
+    stroke: #C3C3BE;
+    fill: #C3C3BE;
+}
+
+.container_WeatherGauge2 .jchartfx_gauge .Filler {
+    fill: #128517;
+    stroke: #128517;
+}
+
+.container_WeatherGauge2 .jchartfx_gauge .Title {
+    font-family: Arial;
+    font-size: 16pt;
+    font-weight: bold;
+    fill: #000000;
+}
+
+.container_WeatherGauge2 .jchartfx_gauge .TitleLarge {
+    font-family: Arial;
+    font-size: 20pt;
+    fill: #FFFFFF;
+}
+
+	</style>
+	<style class="jcf_style container_Progress2">
+	.container_Progress2 .jchartfx_gauge .Border {
+    fill: #F4F4F4;
+}
+
+.container_Progress2 .jchartfx_gauge .TickMajor {
+    fill: #D6D6D6;
+    stroke: #D6D6D6;
+}
+
+.container_Progress2 .jchartfx_gauge .Bar {
+    fill: #FFFFFF;
+    stroke: #FFFFFF;
+}
+
+.container_Progress2 .jchartfx_gauge .Filler {
+    fill: #57ACDA;
+    stroke: #4281A4;
+}
+
+.container_Progress2 .jchartfx_gauge .Title {
+    font-family: Arial;
+    font-size: 20pt;
+}
+
+.container_Progress2 .jchartfx_gauge .TitleLarge {
+    font-family: Arial;
+    font-size: 24pt;
+    font-weight: bold;
+    fill: #000000;
+}
+
+
+
+	</style>
+	<style class="jcf_style container_RealisticSemicircular">
+	.container_RealisticSemicircular .jchartfx_gauge .Indicator {
+    fill: #C94961;
+    stroke: #000000;
+}
+
+.container_RealisticSemicircular .jchartfx_gauge .Border {
+    fill: #780000;
+}
+
+.container_RealisticSemicircular .jchartfx_gauge .Text {
+    fill:#E0E0E0;
+}
+
+	</style>
+	<style class="jcf_style container_ShadowSections">
+	.container_ShadowSections .jchartfx_gauge .Border {
+    fill: #EDEDED;
+    stroke: #A0A0A0
+}
+
+.container_ShadowSections .jchartfx_gauge .Section0 {
+    fill: #D0E7F4;
+    stroke: #D0E7F4;
+}
+
+.container_ShadowSections .jchartfx_gauge .Section1 {
+    fill: #63B9E0;
+    stroke: #63B9E0;
+}
+
+.container_ShadowSections .jchartfx_gauge .Section2 {
+    fill: #559EC5;
+    stroke: #559EC5;
+}
+
+.container_ShadowSections .jchartfx_gauge .Section3 {
+    fill: #3A687E;
+    stroke: #3A687E;
+}
+
+.container_ShadowSections .jchartfx_gauge .Needle {
+    fill: #328ABC;
+    stroke: #328ABC;
+}
+
+	</style>
+	<style class="jcf_style container_TickmarksUsingSectionColor">
+	.container_TickmarksUsingSectionColor .jchartfx_gauge .Indicator {
+    fill: #F0F0F0;
+    stroke: #F0F0F0;
+}
+
+.container_TickmarksUsingSectionColor .jchartfx_gauge .Border {
+    fill: #303030;
+}
+
+.container_TickmarksUsingSectionColor .jchartfx_gauge .Section0 {
+    fill: #FF0000;
+    stroke: #FF0000;
+}
+
+.container_TickmarksUsingSectionColor .jchartfx_gauge .Section1 {
+    fill: #FFFF00;
+    stroke: #FFFF00;
+}
+
+.container_TickmarksUsingSectionColor .jchartfx_gauge .Section2 {
+    fill: #00FF00;
+    stroke: #00FF00;
+}
+
+	</style>
+	<style class="jcf_style container_ThinNeedle">
+	.container_ThinNeedle .jchartfx_gauge .Filler {
+    fill: #666666;
+}
+
+.container_ThinNeedle .jchartfx_gauge .Needle {
+    fill: #F19024;
+    stroke: #F19024;
+}
+
+.container_ThinNeedle .jchartfx_gauge .Title {
+    fill: #808080;
+    font-size: 30pt;
+}
+
+	</style>
+	<style class="jcf_style container_GradientSections">
+	.container_GradientSections .jchartfx_gauge .BorderThick {
+    stroke: #6D7184;
+    fill: #17212B;
+}
+
+.container_GradientSections .jchartfx_gauge .Cap {
+    fill: #17212B;
+}
+
+.container_GradientSections .jchartfx_gauge .Text {
+    fill: #CCCCCC;
+}
+
+.container_GradientSections .jchartfx_gauge .Indicator {
+    fill: #FFD329;
+}
+
+.container_GradientSections .jchartfx_gauge .Marker {
+    fill: #FFBC57;
+    stroke: #A3310B;
+    stroke-width: 1;
+}
+
+.container_GradientSections .jchartfx_gauge .Section0 {
+    fill: #047900;
+    stroke-width: 0;
+}
+
+.container_GradientSections .jchartfx_gauge .Section0Alternate {
+    fill: #6FBD00;
+}
+
+.container_GradientSections .jchartfx_gauge .Section1 {
+    fill: #6FBD00;
+    stroke-width: 0;
+}
+
+.container_GradientSections .jchartfx_gauge .Section1Alternate {
+    fill: #D6F700;
+}
+
+.container_GradientSections .jchartfx_gauge .Section2 {
+    fill: #D6F700;
+    stroke-width: 0;
+}
+
+.container_GradientSections .jchartfx_gauge .Section2Alternate {
+    fill: #E4AF00;
+}
+
+.container_GradientSections .jchartfx_gauge .Section3 {
+    fill: #E4AF00;
+    stroke-width: 0;
+}
+
+.container_GradientSections .jchartfx_gauge .Section3Alternate {
+    fill: #F16B00;
+}
+
+.container_GradientSections .jchartfx_gauge .Section4 {
+    fill: #F16B00;
+    stroke-width: 0;
+}
+
+.container_GradientSections .jchartfx_gauge .Section4Alternate {
+    fill: #FF0000;
+}
+
+	</style>
+	<style class="jcf_style container_MinimalisticWithSections">
+	.container_MinimalisticWithSections .jchartfx_gauge .Needle {
+    fill: #999999;
+    stroke: #999999;
+}
+
+.container_MinimalisticWithSections .jchartfx_gauge .Marker {
+    stroke: #FFFFFF;
+}
+
+.container_MinimalisticWithSections .jchartfx_gauge .Section0 {
+    fill: #FF0000;
+    stroke: #FFFFFF;
+}
+
+.container_MinimalisticWithSections .jchartfx_gauge .Section1 {
+    fill: #FF6A00;
+    stroke: #FFFFFF;
+}
+
+.container_MinimalisticWithSections .jchartfx_gauge .Section2 {
+    fill: #30A000;
+    stroke: #FFFFFF;
+}
+
+.container_MinimalisticWithSections .jchartfx_gauge .Title {
+    fill: #999999;
+}
+
+.container_MinimalisticWithSections .jchartfx_gauge .TitleLarge {
+    fill: #333333;
+    font-size: 18pt;
+}
+
+	</style>
+	<style class="jcf_style container_Progress3">
+	@import url(http://fonts.googleapis.com/css?family=Lato:100,300,400,700);
+
+.container_Progress3 .jchartfx_gauge .Filler {
+    fill: #81E970;
+    stroke: #81E970;
+}
+.container_Progress3 .jchartfx_gauge .Bar {
+    fill: #F2F2F2;
+    stroke: #F2F2F2;
+}
+
+.container_Progress3 .jchartfx_gauge .Text {
+    font-weight: 300;
+}
+
+.container_Progress3 .jchartfx_gauge .TitleLarge {
+    font-family: Lato, sans-serif;
+    font-weight: 300;
+    font-size: 40pt;
+    fill: #CCCCCC;
+}
+
+	</style>
+	<style class="jcf_style container_Progress4">
+	@import url(http://fonts.googleapis.com/css?family=Roboto:100,300,400,700);
+
+.container_Progress4 .jchartfx_gauge .Border {
+    fill: #E5412D;
+    stroke: #E5412D;
+}
+
+.container_Progress4 .jchartfx_gauge .Filler {
+    fill: #E5412D;
+    stroke: #EA8377;
+}
+
+.container_Progress4 .jchartfx_gauge .Bar {
+    fill: #F2F2F2;
+    stroke: #F2F2F2;
+}
+
+.container_Progress4 .jchartfx_gauge .TitleLarge {
+    font-family: Roboto, sans-serif;
+    font-size: 40pt;
+    fill: #FFFFFF;
+    font-weight: 700;
+}
+
+.container_Progress4 .jchartfx_gauge .TickMajor {
+    fill: #FFFFFF;
+    stroke: #FFFFFF;
+}
+
+.container_Progress4 .jchartfx_gauge .TickMedium {
+    fill: #FFFFFF;
+    stroke: #FFFFFF;
+}
+
+	</style>
+	<style class="jcf_style container_Progress5">
+	@import url(http://fonts.googleapis.com/css?family=Roboto:100,300,400,700);
+
+.container_Progress5 .jchartfx_gauge .Border {
+    fill: #F4F4F4;
+    stroke: #F4F4F4;
+}
+
+.container_Progress5 .jchartfx_gauge .Filler {
+    fill: #E5412D;
+    stroke: #EA8377;
+}
+
+.container_Progress5 .jchartfx_gauge .Bar {
+    fill: #F2F2F2;
+    stroke: #F2F2F2;
+}
+
+.container_Progress5 .jchartfx_gauge .TitleLarge {
+    font-family: Roboto, sans-serif;
+    font-size: 40pt;
+    fill: #E5412D;
+    font-weight: 700;
+}
+
+.container_Progress5 .jchartfx_gauge .TickMajor {
+    fill: #DFE0E0;
+    stroke: #DFE0E0;
+}
+
+.container_Progress5 .jchartfx_gauge .TickMedium {
+    fill: #DFE0E0;
+    stroke: #DFE0E0;
+}
+
+	</style>
+	<style class="jcf_style container_Progress6">
+	.container_Progress6 .jchartfx_gauge .Border {
+    fill: #FCFCFC;
+    stroke: #2FABE9;
+}
+
+.container_Progress6 .jchartfx_gauge .Filler {
+    fill: #2FABE9;
+    stroke: #2FABE9;
+}
+
+.container_Progress6 .jchartfx_gauge .TitleLarge {
+    fill: #2FABE9;
+    font-size: 32pt;
+}
+
+.container_Progress6 .jchartfx_gauge .Title {
+    fill: #646464;
+    font-size: 16px;
+}
+
+
+	</style>
+	<style class="jcf_style container_Progress7">
+	@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+
+.container_Progress7 .jchartfx_gauge .Filler {
+    fill: #F8CA2E;
+    stroke: #F8CA2E;
+}
+
+.container_Progress7 .jchartfx_gauge .TitleLarge {
+    fill: #020202;
+    font-size: 30pt;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 100;
+}
+
+	</style>
+	<style class="jcf_style container_Progress8">
+	@import url(http://fonts.googleapis.com/css?family=Lato:100,300,400,700);
+
+.container_Progress8 .jchartfx_gauge .Border {
+    fill: #6BBDE8;
+    stroke: #6BBDE8;
+}
+
+.container_Progress8 .jchartfx_gauge .Filler {
+    fill: #73AB3E;
+    stroke: #6CA734;
+}
+
+.container_Progress8 .jchartfx_gauge .Bar {
+    fill: #FBFAFB;
+    stroke: #ECEBEC;
+}
+
+.container_Progress8 .jchartfx_gauge .TitleLarge {
+    font-family: 'Segoe UI', 'Lato';
+    font-weight: 300;
+    font-size: 40pt;
+    fill: #F5FBFD;
+}
+
+.container_Progress8 .jchartfx_gauge .Title {
+    font-family: 'Segoe UI', 'Lato';
+    font-weight: 300;
+    font-size: 14pt;
+    fill: #C6C5C5;
+}
+
+	</style>
+	<style class="jcf_style container_Bold">
+	.container_Bold .jchartfx_gauge .BorderThick {
+    stroke: #D6D6D6;
+    fill: #003873;
+    stroke-width: 4;
+}
+
+.container_Bold .jchartfx_gauge .Cap {
+    fill: #8E8655;
+}
+
+.container_Bold .jchartfx_gauge .TickMajor {
+    fill: #434E2C;
+    stroke: #434E2C;
+}
+
+.container_Bold .jchartfx_gauge .TickMedium {
+    fill: #434E2C;
+    stroke: #434E2C;
+}
+
+.container_Bold .jchartfx_gauge .Text {
+    fill: #CCCCCC;
+}
+
+.container_Bold .jchartfx_gauge .Indicator {
+    fill: #FD571F;
+}
+
+.container_Bold .jchartfx_gauge .Section0 {
+    fill: #FA5521;
+    stroke-width: 0;
+}
+
+.container_Bold .jchartfx_gauge .Section1 {
+    fill: #FCFC35;
+    stroke-width: 0;
+}
+
+.container_Bold .jchartfx_gauge .Section2 {
+    fill: #BFEB15;
+    stroke-width: 0;
+}
+
+.container_Bold .jchartfx_gauge .TitleMain {
+    fill: #00397A;
+    font-family: Verdana;
+    font-weight: bold;
+    font-size: 9pt;
+}
+
+.container_Bold .jchartfx_gauge .Title {
+    fill: #827F82;
+    font-family: Verdana;
+    font-size: 8pt;
+}
+
+	</style>
+	<style class="jcf_style container_BumpGlare">
+	.container_BumpGlare .jchartfx_gauge .Border {
+    fill: #000000;
+    stroke: #000000;
+}
+
+.container_BumpGlare .jchartfx_gauge .TickMajor {
+    fill: #000000;
+    fill-opacity: 0.5;
+}
+
+.container_BumpGlare .jchartfx_gauge .TickMedium {
+    fill: #000000;
+    fill-opacity: 0.5;
+}
+
+	</style>
+	</head>
+	<body>		
+		<div class="titlebar top">
+			<h3>jChartFX Samples</h3>
+			<h4>Radial Gauge</h4>			
+		</div>
+		<div class="samplesnav">
+			<ul>
+			<li class="crop"><a><div class="thumb_container crop obj_type_radial" thumb_type="crop"><div class="container radial_container container_NeedleWithSections" id="container_NeedleWithSections" ></div></div><h6>Needle with Sections</h6></a></li>
+				<li class="crop"><a><div class="thumb_container crop obj_type_radial" thumb_type="crop"><div class="container radial_container container_Progress" id="container_Progress" ></div></div><h6>Progress</h6></a></li>
+				<li class="crop"><a><div class="thumb_container crop obj_type_radial" thumb_type="crop"><div class="container radial_container container_Marker" id="container_Marker" ></div></div><h6>Marker</h6></a></li>
+				<li class="crop"><a><div class="thumb_container crop obj_type_radial" thumb_type="crop"><div class="container radial_container container_LEDs" id="container_LEDs" ></div></div><h6>LEDs</h6></a></li>
+				<li class="crop"><a><div class="thumb_container crop obj_type_radial" thumb_type="crop"><div class="container radial_container container_SimpleBarAndNeedle" id="container_SimpleBarAndNeedle" ></div></div><h6>Simple Bar and Needle</h6></a></li>
+				<li class="crop"><a><div class="thumb_container crop obj_type_radial" thumb_type="crop"><div class="container radial_container container_WeatherGauge" id="container_WeatherGauge" ></div></div><h6>Weather Gauge</h6></a></li>
+				<li class="crop"><a><div class="thumb_container crop obj_type_radial" thumb_type="crop"><div class="container radial_container container_SimpleBarAndNeedle2" id="container_SimpleBarAndNeedle2" ></div></div><h6>Simple Bar and Needle 2</h6></a></li>
+				<li class="crop"><a><div class="thumb_container crop obj_type_radial" thumb_type="crop"><div class="container radial_container container_WeatherGauge2" id="container_WeatherGauge2" ></div></div><h6>Weather Gauge 2</h6></a></li>
+				<li class="crop"><a><div class="thumb_container crop obj_type_radial" thumb_type="crop"><div class="container radial_container container_Progress2" id="container_Progress2" ></div></div><h6>Progress 2</h6></a></li>
+				<li class="crop"><a><div class="thumb_container crop obj_type_radial" thumb_type="crop"><div class="container radial_container container_RealisticSemicircular" id="container_RealisticSemicircular" ></div></div><h6>Realistic Semicircular</h6></a></li>
+				<li class="crop"><a><div class="thumb_container crop obj_type_radial" thumb_type="crop"><div class="container radial_container container_ShadowSections" id="container_ShadowSections" ></div></div><h6>Shadow Sections</h6></a></li>
+				<li class="crop"><a><div class="thumb_container crop obj_type_radial" thumb_type="crop"><div class="container radial_container container_TickmarksUsingSectionColor" id="container_TickmarksUsingSectionColor" ></div></div><h6>Tickmarks Using Section Color</h6></a></li>
+				<li class="crop"><a><div class="thumb_container crop obj_type_radial" thumb_type="crop"><div class="container radial_container container_ThinNeedle" id="container_ThinNeedle" ></div></div><h6>Thin Needle</h6></a></li>
+				<li class="crop"><a><div class="thumb_container crop obj_type_radial" thumb_type="crop"><div class="container radial_container container_GradientSections" id="container_GradientSections" ></div></div><h6>Gradient Sections</h6></a></li>
+				<li class="crop"><a><div class="thumb_container crop obj_type_radial" thumb_type="crop"><div class="container radial_container container_MinimalisticWithSections" id="container_MinimalisticWithSections" ></div></div><h6>Minimalistic with Sections</h6></a></li>
+				<li class="crop"><a><div class="thumb_container crop obj_type_radial" thumb_type="crop"><div class="container radial_container container_Progress3" id="container_Progress3" ></div></div><h6>Progress 3</h6></a></li>
+				<li class="crop"><a><div class="thumb_container crop obj_type_radial" thumb_type="crop"><div class="container radial_container container_Progress4" id="container_Progress4" ></div></div><h6>Progress 4</h6></a></li>
+				<li class="crop"><a><div class="thumb_container crop obj_type_radial" thumb_type="crop"><div class="container radial_container container_Progress5" id="container_Progress5" ></div></div><h6>Progress 5</h6></a></li>
+				<li class="crop"><a><div class="thumb_container crop obj_type_radial" thumb_type="crop"><div class="container radial_container container_Progress6" id="container_Progress6" ></div></div><h6>Progress 6</h6></a></li>
+				<li class="crop"><a><div class="thumb_container crop obj_type_radial" thumb_type="crop"><div class="container radial_container container_Progress7" id="container_Progress7" ></div></div><h6>Progress 7</h6></a></li>
+				<li class="crop"><a><div class="thumb_container crop obj_type_radial" thumb_type="crop"><div class="container radial_container container_Progress8" id="container_Progress8" ></div></div><h6>Progress 8</h6></a></li>
+				<li class="crop"><a><div class="thumb_container crop obj_type_radial" thumb_type="crop"><div class="container radial_container container_Bold" id="container_Bold" ></div></div><h6>Bold</h6></a></li>
+				<li class="crop"><a><div class="thumb_container crop obj_type_radial" thumb_type="crop"><div class="container radial_container container_BumpGlare" id="container_BumpGlare" ></div></div><h6>Bump Glare</h6></a></li>			
+			</ul>
+		</div>
+		<div class="samplecontent">
+                        <h6 id="h6_chart_title"></h6>
+			<span class="description">
+				<p>This sample shows several radial gauge types supported by jChartFX.</p>
+			</span>			
+			<div class="chartcontainer">
+				<div id="currentChart"></div>
+			</div>
+			<div class=" info_wm">
+				<div class="d_info"><a href="http://support.softwarefx.com/jChartFX/article/1500134" target="_blank">How do I remove the watermark?</a></div>
+			</div>
+		</div>
+		<div class="code">
+			<div class="titlebar bottom">				
+			<div class="togglearrow arrowup"></div>
+				<ul class="navpills">
+					<li ><a class="html">HTML</a></li>
+					<li class="active"><a class="js">Javascript</a></li>
+					<li><a class="css">CSS</a></li>
+				</ul>
+			</div>
+			<ul class="tabscontent">
+				<li class="html ">
+					<pre>
+					</pre>
+				</li>
+				<li class="js active">
+					<pre></pre>
+				</li>
+				<li class="css">
+					<pre></pre>
+				</li>
+			</ul>
+		</div>
+		<!--  Helpers Divs -->
+		<div class="helper_div chart_container"></div>
+		<div class="helper_div radial_container"></div>
+		<div class="helper_div horizontal_container"></div>
+		<div class="helper_div vertical_container"></div>
+		<div class="helper_div digital_container"></div>
+		<div class="helper_div trend_container"></div>	
+		<div class="helper_div map_container"></div>			
+		<!--  Scripts -->
+		<script type="text/javascript" src="resources/jquery-1.7.1.js"></script> 
+		<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+		<script type="text/javascript" src="http://www.jchartfx.com/libs/v7/current/js/jchartfx.full.js"></script>
+		<script type="text/javascript" src="resources/functions.js"></script> 
+		<script type="text/javascript" src="resources/presenter.js"></script>
+	</body>
+</html>

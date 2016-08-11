@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>meter polyfill</title>
+<link rel="stylesheet" href="style.css">
+<script src="jquery.min.js"></script>
+<script src="../jquery.html5jpMeterPolyfill.js"></script>
+<script>
+$(document).ready(function() {
+	var m = $('#m');
+	m.html5jpMeterPolyfill();
+	var val = parseFloat(m.attr('value'), 10);
+	var max = parseFloat(m.attr('max'), 10);
+	var min = parseFloat(m.attr('min'), 10);
+	window.setInterval(function() {
+		val ++;
+		if( val > max ) { val = min; }
+		m.attr('value', val);
+		m.html5jpMeterPolyfill();
+	}, 50);
+});
+</script>
+<style>
+meter {
+	display: inline-block;
+	width: 15em;
+	height: 3em;
+	vertical-align: -0.2em;
+}
+</style>
+</head>
+<body>
+
+<h1>meter polyfill</h1>
+<p><meter id="m" value="0" min="0" max="100" low="30" high="70" optimum="100"></meter></p>
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+extends _nav_main_layout
+block content
+	ul.nav.navbar-nav
+		
+
+	ul.nav.navbar-nav.navbar-right
+		li.dropdown
+			a.dropdown-toggle(href="#" data-toggle="dropdown") #{user} &nbsp;
+				span.caret 
+			ul.dropdown-menu(role="menu")
+				//li
+					a(href="#") Role: #{user_role}
+				li
+					a(href="/profile") Profile
+				li.divider
+				li
+					a(href="/dashboard") Dashboard
+				li.divider
+				li
+					a(href="mailto:support@baelist.com?Subject=Issue%20Found&Body=Please%20answer%20a%20few%20of%20the%20following%20questions%3A%0A%0AWhat%20is%20the%20best%20number%20to%20reach%20you%20at%3F%0A%0AWhat%20were%20you%20trying%20to%20do%20when%20you%20had%20the%20issues%3F%0A%0AWhat%20is%20the%20name%20of%20the%20account%20you%20are%20trying%20to%20access%3F%0A%0AWhat%20browser%20are%20you%20using%3F" target="_blank" ) Report A Problem
+				li.divider
+				li
+					a(href="/logout") Logout

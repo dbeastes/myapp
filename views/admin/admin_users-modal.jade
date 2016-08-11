@@ -1,0 +1,87 @@
+button.btn.btn-primary(onclick="newUser(); return false;" style="margin-bottom: -36px;") New User
+
+table#userTable( class="table table-condensed table-hover table-responsive table-striped table-bordered" data-toggle="table" data-url="/collections/users" data-cache="false" data-height="299" data-show-refresh="true" data-show-toggle="true" data-show-columns="true" data-search="true" data-flat="true" data-select-item-name="toolbarUsers")
+	thead
+		tr
+			th(data-field="operate" data-formatter="operateFormatterUsers" data-events="operateEventsUsers" ) Actions
+			th(data-field="effDate" data-formatter="effDateFormatter") Effective Date:
+			th(data-field="insured.name") Name:
+			th(data-field="pricing.totalPolicyCost") Total Cost: 
+script.
+
+	
+	// IF Query String success=true
+		// Get ID
+		// Display Alert Success with the ID.
+		// Potentially highlight the ID.
+	
+	function effDateFormatter(value, row, index){
+		var d = new Date(value);
+		return (d.getMonth() + 1) + '-' + d.getDate() + '-' + d.getFullYear(); 
+	}
+
+
+	function operateFormatterUsers(value, row, index) {
+		return [
+		'<a class="edit" href="javascript:void(0)" title="Edit">',
+			'<i class="glyphicon glyphicon-edit"></i>',
+		'</a>'
+		].join('');
+	}
+	window.operateEventsUsers = {
+		'click .edit': function (e, value, row, index) {
+			
+			window.location = '/gotoUser/' + row._id
+		}
+	};
+	$('#userTable').bootstrapTable(); 
+	$(window).resize(function () {
+		$('#userTable').bootstrapTable('resetView');
+	});
+	
+	/** Merge Cells
+		$table.on('load-success.bs.table column-switch.bs.table page-change.bs.table search.bs.table', function () {
+			$table.bootstrapTable('mergeCells', {...});
+		});
+	*/
+	
+	
+	function newUser(){
+		window.open('/user/','_self')
+	}
+	
+	function newQuoteBACKUP(){
+		//This is for later
+		var prevModal = $('#myModal').html();
+
+		AKMD.modal({
+			title 	: 'New Quote',
+			url		: '/quote?modal=true',
+			onload	: function(){
+				$( '#addQuoteForm > button.btn.btn-primary' ).css('display', 'none');
+				$( '#addQuoteForm > button.btn.btn-default' ).css('display', 'none');
+			},
+			save	: function(e){
+				$( '#addQuoteForm > button.btn.btn-primary' ).click();
+				/*
+				addAgent(function(){
+
+					$('#quoteTable').bootstrapTable('refresh');
+					$('#quoteTable').bootstrapTable('resetView');
+	
+					//If we are in a modal lets reload the previous modal
+					//$('#myModal').html(prevModal);
+					//$('#myModal').modal('show');
+
+	
+				});
+				*/
+	
+				return false;
+			},
+			cancel	: function(e){
+				return false;
+			}
+		});		
+		
+	}
