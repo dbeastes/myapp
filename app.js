@@ -38,9 +38,9 @@ app.get('/', function(req,res){
         
         
          res.render('home', {
-        message:    "This message is Not unique to you ",
+        message:    "Add Your Kittens Here!",
         kittens: kittens,
-        oneLastThing: "Oh yeah, there was one last thing...",
+        oneLastThing: "",
         layout:     "Dig in the on this!"
     });
     });
