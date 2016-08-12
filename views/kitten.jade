@@ -1,18 +1,21 @@
-extends layout
 
-div(class = "col-md-3") 
-div(class = "col-md-6")
-    h1=message
-        h2  
-            table(class = "table table-striped table-bordered table-condensed table-hover")
-                thead(class = 'table table-inverse')
-                    tr
-                        td Name
-                        td(align = 'right') Weight
-                tbody
-                    each kitten in kittens
+extends layout
+block layout
+
+    div(class = 'container')
+    div(class = "col-md-3") 
+    div(class = "col-md-6")
+        h1=message
+            h2  
+                table(class = "table table-striped table-bordered table-condensed table-hover")
+                    thead(class = 'table table-inverse')
                         tr
-                            td=kitten.name
-                            td(align = 'right')=kitten.weight
-            a(href='/', class='btn btn-info btn-lg btn-block')= "Add Another Kitten!"
-div(class = "col-md-3")
+                            td Name
+                            td(align = 'right') Weight
+                    tbody
+                        each kitten in kittens
+                            tr
+                                td=kitten.name
+                                td(align = 'right')=kitten.weight
+                a(href='/', class='btn btn-info btn-lg btn-block')= "Add Another Kitten!"
+    div(class = "col-md-3")
