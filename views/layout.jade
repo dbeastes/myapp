@@ -1,107 +1,23 @@
 doctype html
-html(lang='en', data-ng-app='binddeskApp')
-	head
-		meta(name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1")
-		title= title
 
-		link(rel="shortcut icon" href="/images/binddesk.ico")
-		//link(rel='stylesheet', href='/vendor/bootstrap/3.3.1/css/bootstrap.css')
-		link(rel='stylesheet', href='/vendor/bootstrap/3.3.4/css/bootstrap.css')
-		link(rel="stylesheet", href="/vendor/bootstrap-table/bootstrap-table.css")
+meta(name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1")
 
+
+
+//link(rel='stylesheet', href='/vendor/bootstrap/3.3.1/css/bootstrap.css')
+link(rel='stylesheet', href='/vendor/bootstrap/3.3.4/css/bootstrap.css')
+link(rel="stylesheet", href="/vendor/bootstrap-table/bootstrap-table.css")
+
+
+style.
+	.full {
+	background-image:url('images/kitten.jpg');
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	background-size: cover;
+	-o-background-size: cover;
+	}
+
+			
 		
-		//link(rel='stylesheet', href='/vendor/datepicker/css/datepicker3.css')
-
-		link(rel="stylesheet", href="/vendor/bootstrap-combobox/bootstrap-combobox.css")
-		link(rel="stylesheet", href="/vendor/font-awesome-4.4.0/css/font-awesome.min.css")
-		//link(rel='stylesheet', href='/vendor/rateit/src/rateit.css')
-		link(rel='stylesheet', href='/vendor/jquerydatatables/jquery.dataTables.css')
-		link(rel='stylesheet', href='/stylesheets/style.css')
-		link(rel='stylesheet', href='/stylesheets/daryxStyle.css')
-		link(rel='stylesheet', href='/vendor/wysihtml5x/dist/bootstrap3-wysihtml5.min.css')
-		link(rel='stylesheet', href='/vendor/bootstrap-switch/bootstrap-switch.css')
-
-		script(src="/vendor/angularjs/angular.js")
-		
-		// ANGULAR APP
-		script(src="/javascripts/app.js")
-		script(src="/javascripts/main.js")
-		script(src='/javascripts/config.constant.js')
-		//script(src='/javascripts/config.router.js')
-
-		// ANGULAR MODULES
-		script(src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.14.3.js")
-
-		// ANGULAR CONTROLLERS
-		//script(src='/javascripts/controllers/mainCtrl.js')
-		script(src='/javascripts/controllers/agentController.js')
-		script(src='/javascripts/controllers/agentsController.js')
-		script(src='/javascripts/controllers/agencyController.js')
-		script(src='/javascripts/controllers/agenciesController.js')
-		script(src='/javascripts/controllers/indicationController.js')
-		script(src='/javascripts/controllers/programconnectsController.js')
-		// ANGULAR DIRECTIVES
-		
-		// EVERYTHING ELSE....
-		//script(src="/vendor/wysihtml5x/dist/wysihtml5x.min.js")
-		script(src="/vendor/jquery/jquery-1.11.1.min.js")
-		//script(src="/vendor/jquery/jquery-2.1.4.js")
-	
-		//script(src='/vendor/jquerydatatables/jquery.dataTables.js')
-		script(src='/vendor/jquery-ui-1.11.2/jquery-ui.js')
-		//script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js")
-		script(src="/vendor/moment/moment-min.js")
-		script(src="/vendor/bootstrap/3.3.4/js/bootstrap.min.js")
-		// UPGRADE TO 0.4.17 script(src="/vendor/wysihtml5x/js/wysihtml5-0.3.0_rc2.js")
-		// UPGRADE TO 0.4.17 script(src="/vendor/wysihtml5x/dist/wysihtml5x-toolbar.min.js")
-		script(src="/vendor/wysihtml5x/dist/wysihtml5x.js")
-		script(src="/vendor/wysihtml5x/dist/wysihtml5x-toolbar.js")
-
-		script(src='/vendor/bootstrap-combobox/bootstrap-combobox.js')
-
-		script(src="/vendor/datepicker/js/bootstrap-datepicker.js")
-		script(src='/vendor/bootstrap-table/bootstrap-table.js')
-		script(src='/vendor/bootstrap-table/extensions/export/bootstrap-table-export.js')
-		script(src='/vendor/bootstrap-table/bootstrap-table-flatJSON.js')
-		script(src='/vendor/jquery-table-export/export.js')
-
-		script(src='/vendor/sweetalert/sweetalert.min.js')
-		script(src='/vendor/bootstrap-validator/validator.js')
-		script(src='/vendor/numeral/numeral.js')
-		//script(src='/vendor/jquerypopulate/jquery.populate.js')
-
-
-		script(src="/vendor/bootstrap-confirmation/bootstrap-confirmation.js")
-
-		//script(src='/javascripts/jquery.formautofill.min.js')
-
-		script(src='/javascripts/akmd.js')
-		script(src='/javascripts/bootstrap-table-flatJSON.js')
-		//script(src='/javascripts/form2js.js')
-		//script(src='/javascripts/form2object.js')
-				
-		//script(src="//cdn.ckeditor.com/4.5.3/full/ckeditor.js")
-
-		//script(src="/jquery.serializeToJSON/dist/jquery.serializeToJSON.js")
-		
-		script(src="/vendor/bootstrap-switch/bootstrap-switch.js")
-
-		script.
-			$.fn.extend({
-				show: function() {
-					return this.each(function() {
-						if($(this).hasClass('hidden')) $(this).removeClass('hidden');
-					});
-				},
-				hide: function() {
-					return this.each(function() {
-						if(!$(this).hasClass('hidden')) $(this).addClass('hidden');
-					});
-				},
-			});
-
-			$( document ).ready(function(){
-				AKMD.CSRF = '#{csrf}';
-			});
-		block layout
 
