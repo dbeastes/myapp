@@ -10,7 +10,8 @@ var path = require('path');
 var app = express();
 var name = "Dustin Eastes";
 var bodyParser = require('body-parser');
-var routes = require('./routes')
+var kittenRoutes = require('./kittenRoutes');
+var gardenRoutes = require('./gardenRoutes');
 
 app.use(express.static('routes'));
 app.use(express.static(path.join(__dirname, 'public')));
@@ -22,10 +23,9 @@ app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); 
 
 // use the routing logic here.
-app.use('/', routes);
+app.use('/', kittenRoutes);
 // connect to the mongoos database.
-
-
+app.use('/garden', gardenRoutes);
 
 function renderPage(res, message){
     res.render('home', {
